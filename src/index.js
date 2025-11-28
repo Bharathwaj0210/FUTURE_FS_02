@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";   // <-- change here
 import App from "./App";
 import { ProductsProvider } from "./context/ProductsContext";
 import { AuthProvider } from "./context/AuthContext";
@@ -14,9 +14,9 @@ root.render(
     <ProductsProvider>
       <AuthProvider>
         <CartProvider>
-          <BrowserRouter>
+          <HashRouter> 
             <App />
-          </BrowserRouter>
+          </HashRouter>
         </CartProvider>
       </AuthProvider>
     </ProductsProvider>

@@ -29,11 +29,12 @@ export default function ProductList() {
             <div className="col-md-3" key={p.id}>
               <div className="card h-100 shadow-sm product-card">
                 <img
-                  src={p.thumbnail}
+                  src={process.env.PUBLIC_URL + p.thumbnail}
                   alt={p.title}
-                  className="card-img-top"
-                  style={{ height: "220px", objectFit: "contain", backgroundColor: "#fff", padding: "8px" }}
+                    className="card-img-top"
+                   style={{ height: "220px", objectFit: "contain", backgroundColor: "#fff", padding: "8px" }}
                 />
+
                 <div className="card-body d-flex flex-column">
                   <h5>{p.title}</h5>
                   <p className="text-muted">₹{p.price}</p>

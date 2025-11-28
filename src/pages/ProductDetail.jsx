@@ -21,29 +21,31 @@ export default function ProductDetail() {
       <div className="row">
         <div className="col-md-6 text-center">
           <img
-            src={activeImg}
-            alt={product.title}
-            className="img-fluid mb-3"
-            style={{ maxHeight: "400px", objectFit: "contain", borderRadius: "6px" }}
-          />
-          <div className="d-flex justify-content-center gap-3 flex-wrap">
-            {product.images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={`Thumbnail ${i + 1}`}
-                style={{
-                  width: "90px",
-                  height: "90px",
-                  objectFit: "cover",
-                  cursor: "pointer",
-                  border: activeImg === img ? "3px solid #007bff" : "1px solid #ddd",
-                  borderRadius: "6px",
-                }}
-                onClick={() => setActiveImg(img)}
-              />
-            ))}
-          </div>
+  src={process.env.PUBLIC_URL + activeImg}
+  alt={product.title}
+  className="img-fluid mb-3"
+  style={{ maxHeight: "400px", objectFit: "contain", borderRadius: "6px" }}
+/>
+
+<div className="d-flex justify-content-center gap-3 flex-wrap">
+  {product.images.map((img, i) => (
+    <img
+      key={i}
+      src={process.env.PUBLIC_URL + img}
+      alt={`Thumbnail ${i + 1}`}
+      style={{
+        width: "90px",
+        height: "90px",
+        objectFit: "cover",
+        cursor: "pointer",
+        border: activeImg === img ? "3px solid #007bff" : "1px solid #ddd",
+        borderRadius: "6px",
+      }}
+      onClick={() => setActiveImg(img)}
+    />
+  ))}
+</div>
+
         </div>
 
         <div className="col-md-6">

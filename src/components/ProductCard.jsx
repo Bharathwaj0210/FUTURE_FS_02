@@ -10,17 +10,24 @@ export default function ProductCard({ product }) {
   return (
     <div className="card h-100 product-card">
       <Link to={`/product/${product.id}`}>
-        <img src={product.thumbnail} className="card-img-top" alt={product.title} style={{height:180, objectFit: "cover"}} />
+        <img 
+          src={process.env.PUBLIC_URL + product.thumbnail} 
+          className="card-img-top" 
+          alt={product.title} 
+          style={{ height: 180, objectFit: "cover" }} 
+        />
       </Link>
       <div className="card-body d-flex flex-column">
-        <h6 className="card-title" style={{minHeight: 44}}>{product.title}</h6>
+        <h6 className="card-title" style={{ minHeight: 44 }}>{product.title}</h6>
         <div className="mt-auto">
           <div className="d-flex justify-content-between align-items-center mb-2">
             <div>
               {hasDiscount ? (
                 <>
                   <div className="fw-bold">₹{finalPrice.toLocaleString()}</div>
-                  <div className="text-muted small"><s>₹{product.price.toLocaleString()}</s> <span className="badge bg-success ms-1">{product.discountPercentage}% off</span></div>
+                  <div className="text-muted small">
+                    <s>₹{product.price.toLocaleString()}</s> <span className="badge bg-success ms-1">{product.discountPercentage}% off</span>
+                  </div>
                 </>
               ) : (
                 <div className="fw-bold">₹{product.price.toLocaleString()}</div>

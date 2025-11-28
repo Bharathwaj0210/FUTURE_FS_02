@@ -3,11 +3,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function HeroCarousel() {
-  // static hero slides using local public images if available; fallback to unsplash URLs
-  const slides = [
-    { id: 1, img: "/images/banner1.jpg", title: "Latest Smartphones", subtitle: "Top deals on new models", cta: "/category/smartphones" },
-    { id: 2, img: "/images/banner2.jpg", title: "Laptops for Work & Play", subtitle: "Powerful machines for every need", cta: "/category/laptops" },
-  ];
+  const baseUrl = process.env.PUBLIC_URL || "";
+const slides = [
+  { id: 1, img: `${baseUrl}/images/banner1.jpg`, title: "Latest Smartphones", subtitle: "Top deals on new models", cta: "/category/smartphones" },
+  { id: 2, img: `${baseUrl}/images/banner2.jpg`, title: "Laptops for Work & Play", subtitle: "Powerful machines for every need", cta: "/category/laptops" },
+];
+
 
   // ensure images exist — if not, use unsplash fallback
   const ensureImg = (p) => {
